@@ -1,11 +1,16 @@
 package com.itstannus.dependencyinjection.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import com.itstannus.dependencyinjection.services.GreetingService;
 
+@Controller
 public class ConstructorInjectedController {
 
 	private final GreetingService greetingService;
 	
+//	@Autowired no need to mention this since Spring 4.2 for constructor injection
 	public ConstructorInjectedController(GreetingService greetingService) {
 		this.greetingService = greetingService;
 	}
