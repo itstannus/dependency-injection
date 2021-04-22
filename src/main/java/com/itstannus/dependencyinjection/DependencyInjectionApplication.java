@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import com.itstannus.dependencyinjection.controllers.ConstructorInjectedController;
+import com.itstannus.dependencyinjection.controllers.I18NGreetingController;
 import com.itstannus.dependencyinjection.controllers.MyController;
 import com.itstannus.dependencyinjection.controllers.PropertyInjectedController;
 import com.itstannus.dependencyinjection.controllers.SetterInjectedController;
@@ -15,9 +16,13 @@ public class DependencyInjectionApplication {
 	public static void main(String[] args) {
 		ApplicationContext ctx= SpringApplication.run(DependencyInjectionApplication.class, args);
 		
+		System.out.println("---Internationalization Profile");
+		I18NGreetingController i18NGreetingController= (I18NGreetingController) ctx.getBean("i18NGreetingController");
+		System.out.println(i18NGreetingController.sayHello());
+		
 		System.out.println("---Primary Bean");
 		MyController myController= (MyController) ctx.getBean("myController");
-		System.out.println("---"+myController.sayHello());
+		System.out.println(myController.sayHello());
 		
 		System.out.println("---Property");
 		PropertyInjectedController propertyInjectedController= (PropertyInjectedController) ctx.getBean("propertyInjectedController");
