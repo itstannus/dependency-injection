@@ -3,11 +3,10 @@ package com.itstannus.dependencyinjection.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingServiceImpl implements GreetingService {
+public class PropertyInjectionGreetingService implements GreetingService {
 
 	@Override
 	public String sayGreetings() {
-		return "Hello World";
+		return "Hello World - Property";
 	}
-
 }
